@@ -16,6 +16,9 @@ function Thermostat(){
   };
 
   Thermostat.prototype.upTemp = function(){
+    if (this.isMaxTemp()) {
+      return;
+    }
     this.temperature += 1;
   };
 
@@ -30,17 +33,17 @@ function Thermostat(){
       this.temperature -= 1;
   };
 
-  Thermostat.prototype.powerSaveOff = function(){
-    this.powerSaveOn = false;
-    // this.temperature !== this.PS_MAX_TEMP_OFF;
+  Thermostat.prototype.isMaxTemp = function(){
+    if (this.powerSaveOn === false) {
+      return this.temperature === this.PS_MAX_TEMP_OFF;
+    }
+      return this.temperature === this.PS_MAX_TEMP_ON;
   };
 
+  Thermostat.prototype.switchPowerSaveOn = function(){
+    this.powerSaveOn = true;
+  };
 
-
-  Thermostat.prototype.switchMaxTemp = function(){
-    if powerSaveOn = true
-    this.temperature === this.PS_MAX_TEMP_ON
-    else
-      powerSaveOn = false
-      this.temperature === this.PS_MAX_TEMP_OFF
+  Thermostat.prototype.switchPowerSaveOff = function(){
+    this.powerSaveOn = false;
   };
