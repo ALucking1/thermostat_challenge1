@@ -33,17 +33,32 @@ describe('Thermostat', function(){
     });
 
     it('can be turned off', function(){
-      thermostat.powerSaveOff()
+      thermostat.switchPowerSaveOff()
       expect(thermostat.powerSaveOn).toEqual(false);
     });
 
-    // it('has a max temp of 25 when on', function(){
-    //   expect(thermostat.PS_MAX_TEMP_ON).toEqual(25);
-    // });
-    //
-    // it('has a max temp of 32 when off', function(){
-    //   thermostat.powerSaveOff
-    //   expect(thermostat.PS_MAX_TEMP_OFF).toEqual(32);
+    it('has a max temp of 25 when on', function(){
+      for (var i = 0; i < 6; i++) {
+        thermostat.upTemp();
+       }
+    expect(thermostat.temperature).toEqual(25);
+    });
+
+    it('has a maximum temperature of 32 degrees', function() {
+      thermostat.switchPowerSaveOff()
+      for (var i = 0; i < 13; i++) {
+      thermostat.upTemp();
+      }
+    expect(thermostat.temperature).toEqual(32);
     });
   });
+
+  describe('Reset mode', function(){
+
+    it('resets the temperature to startTemp', function(){
+      thermostat.reset()
+    expect(thermostat.temperature).toEqual(20);
+    });
+  });
+
 });
