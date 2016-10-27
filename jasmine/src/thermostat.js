@@ -1,16 +1,20 @@
 function Thermostat(){
+  this.startTemp = 20;
   this.temperature = 20;
 };
 
+  Thermostat.prototype.startTemp = function(){
+    return this.startTemp;
+  };
+
   Thermostat.prototype.temperature = function(){
-    return this.temperature;
+    return this.temperature
   };
 
   Thermostat.prototype.upTemp = function(n){
-      var currentTemp = this.temperature + n;
-      return currentTemp;
+    this.temperature += n;
   };
 
-
-// this.currentTemp = function (n) {
-// }
+  Thermostat.prototype.downTemp = function(n){
+    this.temperature -= n;
+  };
