@@ -2,6 +2,9 @@ function Thermostat(){
   this.startTemp = 20;
   this.temperature = 20;
   this.MIN_TEMP = 10;
+  this.powerSaveOn = true;
+  this.PS_MAX_TEMP_ON = 25;
+  this.PS_MAX_TEMP_OFF = 32;
 };
 
   Thermostat.prototype.startTemp = function(){
@@ -25,4 +28,19 @@ function Thermostat(){
        return;
     }
       this.temperature -= 1;
+  };
+
+  Thermostat.prototype.powerSaveOff = function(){
+    this.powerSaveOn = false;
+    // this.temperature !== this.PS_MAX_TEMP_OFF;
+  };
+
+
+
+  Thermostat.prototype.switchMaxTemp = function(){
+    if powerSaveOn = true
+    this.temperature === this.PS_MAX_TEMP_ON
+    else
+      powerSaveOn = false
+      this.temperature === this.PS_MAX_TEMP_OFF
   };
