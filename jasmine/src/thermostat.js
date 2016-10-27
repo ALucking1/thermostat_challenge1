@@ -54,10 +54,10 @@ function Thermostat(){
 
   Thermostat.prototype.energyUsage = function(){
     if (this.temperature <= 18) {
-      "low-usage";
+      return "low-usage";
     } else if (this.temperature <= 25) {
-      "medium-usage";
+      return "medium-usage";
     } else {
-      "high-usage";
+      return "high-usage";
   };
 };
