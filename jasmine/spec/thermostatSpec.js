@@ -13,9 +13,15 @@ describe('Thermostat', function(){
       thermostat.upTemp(1)
       expect(thermostat.temperature).toBe(21);
     });
-    it('decreases the temperature with an up function', function(){
+    it('decreases the temperature with an down function', function(){
       thermostat.downTemp(1)
       expect(thermostat.temperature).toBe(19);
+    });
+    it('has a minimum temperature of 10', function(){
+      for (var i = 0; i < 11; i++){
+        thermostat.downTemp();
+      }
+      expect(thermostat.temperature).toEqual(10);
     });
   });
 });
