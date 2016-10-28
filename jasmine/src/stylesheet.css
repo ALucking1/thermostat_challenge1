@@ -1,5 +1,5 @@
 body {
-  background-color: #ADD8E6;
+  background-color: #bbd9bd;
 }
 
 .low-usage {
@@ -12,4 +12,16 @@ body {
 
 .high-usage {
   color: 	#FF0000;
+}
+
+img {
+  position: absolute;
+  left: 350px;
+  top: 50px;
+}
+
+button {
+  background-color: #000000;
+  border: none;
+  color:
 }
